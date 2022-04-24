@@ -85,3 +85,4 @@ def get_match_data(name: str, region: str):
 
 if __name__ == "__main__":
     get_match_data("Seraphineas", "EUW")
+    #test
