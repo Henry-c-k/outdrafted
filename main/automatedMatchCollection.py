@@ -34,6 +34,7 @@ def get_match_data(current_match):
     current_match.participants
     for participant in current_match.blue_team.participants:
         
+        print(current_match.patch)
         cm=cass.get_champion_mastery(participant.summoner, participant.champion, regionName)
         try:
             entry=participant.summoner.league_entries.fives()
@@ -106,9 +107,12 @@ def collect_matches(unpulled_summoner_ids, pulled_summoner_ids, unpulled_match_i
             new_match = Match(id=str(new_match_id), region=region)
             
             #get game info and save it in an external txt file
-            gameInfo = get_match_data(new_match)
-            with open('match_data_collection.txt','a') as f:
-                f.write(str(gameInfo)+'\n')
+            try:
+                gameInfo = get_match_data(new_match)
+                with open('match_data_collection.txt','a') as f:
+                    f.write(str(gameInfo)+'\n')
+            except:
+                print("game bugged go to next")
             
             for participant in new_match.participants:
                 if (
