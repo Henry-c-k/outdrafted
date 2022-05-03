@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Apr 22 13:23:32 2022
-
-@author: monsi
-"""
 import numpy as np
 import tensorflow as tf
 import tensorflow.keras as tfk
